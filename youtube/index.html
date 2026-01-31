@@ -3,13 +3,37 @@
     <head>
         <title>YouTube Clone</title>
         <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-        <link rel="stylesheet" href="youtube.css">
+        <link rel="stylesheet" href="styles/youtube.css">
+        <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/general.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <input class="search-bar" type="text" placeholder="Search">
+        
+        <div class="header">
+            <div class="left-section">
+                <img class="hamburger-menu" src="other-media/hamburger-menu.svg"><img class="youtube-logo" src="other-media/youtube-logo.svg">
+            </div>
+            <div class="middle-section">
+                <input class="search-bar" type="text" placeholder="Search">
+                <button class="search-button">
+                    <img class="search-icon" src="other-media/search.svg">
+                </button>
+                <button class="voice-search-button">
+                    <img class="voice-search-icon" src="other-media/voice-search-icon.svg">
+                </button>
+            </div>
+            <div class="right-section">
+                <img class="upload-icon" src="other-media/upload.svg">
+                <img class="apps-icon" src="other-media/youtube-apps.svg">
+                <img class="notifications-icon" src="other-media/notifications.svg">
+                <img class="current-user-icon" src="profiles/main-chan.jpg">
+
+
+            </div>
+        </div>
         <div class="video-grid">
             <div class="preview">
                 <div class="thumbnail-row">
