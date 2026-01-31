@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/youtube",
+      "destination": "/youtube/",
+      "permanent": true
+    }
+  ]
+}
