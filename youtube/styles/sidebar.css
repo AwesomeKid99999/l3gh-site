@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 80px;
+    background-color: pink;
+    width: 110px;
+}
