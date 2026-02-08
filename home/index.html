@@ -1,57 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Leah's Home</title>
-  <link rel="icon" href="../assets/images/favicon.ico">
-  <style>
-    body {
-      background-color: #ffc0cb; /* pastel pink */
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-    }
-    h1 {
-      color: #000000;
-      font-size: 5rem;
-      font-family: sans-serif;
-    }
-    input {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <h1>dc: l3gh</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>l3gh - About Me</title>
+        <link rel="stylesheet" href="./styles/home-style.css">
+        <link rel="stylesheet" href="./styles/home-header.css">
+        <link rel="stylesheet" href="./styles/home-general.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-nav">
+                <a class="header-nav-button-current" href="./index.html">Home</a>
+                <a class="header-nav-buttons" href="./gallery/index.html">Gallery</a>
+                <a class="header-nav-buttons" href="./projects/index.html">Projects</a>
+            </div>
+        </header>
 
-  <!-- Message form -->
-  <form id="msgForm">
-    <input type="text" name="message" placeholder="Leave me a message">
-    <button type="submit">Send</button>
-  </form>
+        <div class="banner">
+            <img class="banner-image" src="./assets/images/roses-banner.jpg">
+            <div class="banner-fade"></div>
+        </div>
 
-  <script>
-    const form = document.getElementById("msgForm");
-    form.addEventListener("submit", async e => {
-      e.preventDefault();
-      const message = form.message.value;
-      await fetch("/api/discord", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message })
-      });
-      form.reset();
-    });
-  </script>
-</body>
+        <main>
+            <section id="home" class="home">
+                <div class="desc1">
+                    <h1>Hello stranger!</h1>
+                    <p>It seems you have found my personal web page! Here you can find some of my projects and perhaps learn a bit about me.</p>
+                    <p>Online I'm known as l3gh or Leah. Please don't call me any other names.</p>
+                    <p>I am an Austrian child who just recently started learning to code. I'm also self-taught.</p>
+                    <p>I'd say I'm quite passionate about my work, and maybe I'll even pursue it as a career.</p>
+                    <p>Feel free to reach out through Discord (@l3gh), i have a lot of free time so you'll most likely get an instant response, or by email at _@l3gh.com (not as active).</p>
+                </div>
+                <div class="image-area">
+                    <div class="profile">
+                        <img class="image" src="./assets/images/l3gh-image.jpg">
+                        <div class="image-footer">
+                        <a class="random-link-on-the-side-nobody-cares-about" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">check me out</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--<form id="msgForm">
+                <input type="text" name="message" placeholder="Leave me a message">
+                <button type="submit">Send</button>
+            </form> 
+             for if i ever want to make the send button on this site too -->
+
+            <section id="socials" class="socials">
+                <h2 class="socials-header">Socials</h2>
+                <a  href="https://discord.gg/N58BT9AZ ">
+                    <img class="socials-icon" src="./assets/images/discord.png">
+                </a>
+                <a  href="https://github.com/l3gh">
+                    <img class="socials-icon" src="./assets/images/github.png">
+                </a>
+                <a  href="https://steamcommunity.com/id/l3gh">
+                    <img class="socials-icon" src="./assets/images/steam.png">
+                </a>
+                <a href="https://dungeon.report/epic/4611686018533384480">
+                    <img class="socials-icon" src="./assets/images/bungie.png">
+                </a>
+                <a href="https://fortnitetracker.com/profile/all/L3gh_">
+                    <img class="socials-icon" src="./assets/images/epic.png">
+                </a>
+                <a href="https://open.spotify.com/user/fwhnbcuu242shukh0hfl9q0mo?si=8f7123adee8647e2">
+                    <img class="socials-icon" src="./assets/images/spotify.png">
+                </a>
+                <a href="https://www.tiktok.com/@_l3gh">
+                    <img class="socials-icon" src="./assets/images/tiktok.png">
+                </a>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with simple HTML + CSS by l3gh. I'm still learning and this site is just practice. No LLMs were used in the creation of this site.</p>
+        </footer>
+
+        <!--
+        <script>
+            const form = document.getElementById("msgForm");
+            form.addEventListener("submit", async e => {
+            e.preventDefault();
+            const message = form.message.value;
+            await fetch("/api/discord", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message })
+            });
+            form.reset();
+            });
+        </script>  
+        for if i ever want to make the send button on this site too -->
+    </body>
 </html>

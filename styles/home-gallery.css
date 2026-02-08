@@ -1,0 +1,134 @@
+/*body {
+    display: flex;
+    justify-content: center;
+}*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+.banner {
+    position: relative;
+    overflow:hidden;
+    height: 400px;
+    image-rendering: pixelated;
+    object-position: top;
+    display: flex;
+    padding-top: 60px;
+    left: 0;
+    right: 0;
+    align-items:center;
+}
+
+.banner-image {
+    display: block;
+    image-rendering: pixelated;
+    width: 100%;
+    padding-top: 100px;
+    overflow:auto;
+}
+
+.banner-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #222 100%);
+}
+
+.site {
+    margin-top: 100px;
+    color: white;
+    font-size: xx-large;
+    /*background-color: rgb(229, 221, 223);   <- testing */
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: center;
+    /*background-color: pink;  <- testing */
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+
+.gallery-subheader {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+.scroller {
+    color: rgb(205, 205, 205);
+    text-decoration: underline;
+}
+
+.showcase {
+    /*background-color: lightblue;   <- testing  */
+    display: flex;
+    justify-content: center;
+    /*margin-left: 200px;
+    margin-right: 200px;   <- i realised its useless.*/ 
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.showcase-outside {
+    padding: 10px;
+    background-color: rgb(152, 152, 152);
+    margin-top: 75px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.showcase-inside {
+    /*background-color: brown;*/
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    float: top;
+    height: 600px;
+    image-rendering: auto;
+    overflow: auto;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.object-header {
+    color: black;
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+
+.object-desc {
+    color: rgb(26, 26, 26);
+    text-align: center;
+    width: 80%;
+    font-size: large;
+    margin-bottom: 8px;
+}
+
+.youtube-link {
+    text-decoration: underline;
+    font-weight: 600;
+    color: rgb(26, 26, 26);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #555;
+}

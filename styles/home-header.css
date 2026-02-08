@@ -1,0 +1,44 @@
+.header-nav-buttons {
+    color: rgb(102, 102, 102);
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-transform: uppercase;
+    transition: .1s ease-in-out;
+}
+
+header {
+    background-color: rgb(34, 34, 34);
+    padding: 10px;
+    display: flex;
+    row-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.header-nav {
+    color: rgb(102, 102, 102);
+}
+
+.header-nav-buttons:hover {
+    color: rgb(77, 77, 77);
+}
+
+.header-nav-button-current {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-transform: uppercase;
+    transition: .1s ease-in-out;
+}

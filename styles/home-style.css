@@ -1,0 +1,113 @@
+
+.banner {
+    position: relative;
+    overflow:hidden;
+    height: 400px;
+    image-rendering: pixelated;
+    object-position: top;
+    display: flex;
+    padding-top: 60px;
+    left: 0;
+    right: 0;
+    align-items:center;
+}
+
+.banner-image {
+    display: block;
+    image-rendering: pixelated;
+    width: 100%;
+    padding-top: 100px;
+    overflow:auto;
+}
+
+.banner-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #222 100%);
+}
+
+/*
+    Above this comment is the css for the banner.
+    Beneath it is the rest of the site <3 
+*/
+
+main {
+    margin: 40px auto;
+    display: flow-root;
+    box-sizing: content-box;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 36px;
+    padding-right: 26px;
+}
+
+.desc1 {
+    padding-right: 14px;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.image {
+    height: 220px;
+    border-radius: 9px;
+}
+
+.image-area {
+    display: flex;
+    justify-content: end;
+}
+
+.image-footer {
+    text-align: center;
+    color: palegoldenrod;
+    display: block;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: end;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h1, h2 {
+    font-size: 27.2px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 400;
+}
+
+.socials-icon {
+    height: 60px;
+    margin-right: 3px;
+}
+
+.random-link-on-the-side-nobody-cares-about {
+    color: white;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #555;
+}
