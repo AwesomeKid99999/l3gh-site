@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../styles/home-style.css">
         <link rel="stylesheet" href="../styles/home-header.css">
         <link rel="stylesheet" href="../styles/home-general.css">
+        <link rel="stylesheet" href="../styles/home-popup.css">
         <link rel="icon" type="image/x-icon" href="../assets/images/home-favicon.jpg">
     </head>
     <body>
@@ -23,6 +24,11 @@
             <div class="banner-fade"></div>
         </div>
         <!-- banner and its fade -->
+        
+        <div id="popup">
+            <button id="close-button" onclick="closePopup()">🗙</button> </button>
+            <p id="popup-text">This is my <b>personal site</b>! If youre looking for the server site, it's <a id="server-fwd" href="../server/index.html"><b>here</b></a>.</p>
+        </div>
 
         <main>
             <section id="home" class="home">
@@ -83,6 +89,20 @@
         <footer>
             <p>Built with simple HTML + CSS by l3gh. I'm still learning and this site is just practice. No LLMs were used in the creation of this site.</p>
         </footer>
+
+        <script>
+            window.onload = openPopup;
+
+            function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+            }
+
+            function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            }
+        </script>
+                <!-- this just is the script for the popup -->
+
 
         <!--
         <script>
