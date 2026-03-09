@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Server Site</title>
+        <link rel="icon" href="../assets/images/home-favicon.jpg">
+        <link rel="stylesheet" href="./styles/temp.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+    </head>
+<body>
+<!-- get OUT of the devtools you LARP. -->
+    <div class="nav-wrap" id="wrap1">
+        <div class="hover-bg" id="hoverBg1">
+        </div>
+
+        <div class="active-line" id="activeLine1">
+        </div>
+
+        <div class="tabs" id="tabs1">
+            <button class="tab active" data-idx="0">Info</button>
+            <button class="tab" data-idx="1">My Builds</button>
+            <button class="tab" data-idx="2">Community</button>
+        </div>
+    </div>
+
+
+
+    <div class="page-content" id="content1">
+    <div class="page visible" data-page="0"> <!-- note to self, this is page 1-->
+        <h2>Info</h2>
+        
+        <p class="look-at-me">Ip: <b><span class="gradient-text-main">l3gh.com</span></b></p>
+        <p class="look-at-me">Version: <b><span class="gradient-text-main">1.20.1</span></b></p>
+
+        
+
+        <div class="server-api">
+            <div id="serverinfo" class="server-return"><!--do NOT. touch me, check <script>.. --></div>
+        </div>
+        <details class="details-toggle">
+            <summary>Stats for Nerds</summary>
+            <div class="sfn-long">
+                <div id="nerds" class="nerds-return"><!-- also DONT touch this--></div>
+            </div>
+        </details>
+        <p>This is the api.mcsrvstat.us json response, coding this was surprisingly fun! enjoy</p>
+    </div>
+<!-- ----------------------end of page1----------------- note to self -->
+
+
+    <div class="page" data-page="1">    <!-- note to self, this is page 2-->
+        <h2>My Builds</h2>you know what you can find here (one day)
+    </div>
+<!-- ----------------------end of page2----------------- note to self -->
+
+
+    <div class="page" data-page="2">      <!-- note to self, this is page 3-->
+        <h2>Community</h2>these are the other's builds!
+    </div>
+<!-- ----------------------end of page1----------------- note to self -->
+
+  <script>
+    function initMotionTabs({ tabsEl, hoverBgEl, activeLineEl, contentEl, lightMode }) {
+        const tabs = Array.from(tabsEl.querySelectorAll('.tab'));
+        let activeIdx = 0;
+
+
+        function getTabRect(tab) {
+            const containerRect = tabsEl.getBoundingClientRect();
+            const tabRect       = tab.getBoundingClientRect();
+            return {
+            left:  tabRect.left - containerRect.left,
+            width: tabRect.width,
+            };
+        }
+
+        function moveActiveLine(tab) {
+            const { left, width } = getTabRect(tab);
+            activeLineEl.style.left  = left + 'px';
+            activeLineEl.style.width = width + 'px';
+        }
+
+        function moveHoverBg(tab) {
+            const { left, width } = getTabRect(tab);
+            hoverBgEl.style.left  = left + 'px';
+            hoverBgEl.style.width = width + 'px';
+        }
+
+        function showPage(idx) {
+            if (!contentEl) return;
+            contentEl.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+            const target = contentEl.querySelector(`[data-page="${idx}"]`);
+            if (target) target.classList.add('visible');
+        }
+
+        activeLineEl.style.transition = 'none';
+        hoverBgEl.style.transition    = 'none';
+
+        requestAnimationFrame(() => {
+            moveActiveLine(tabs[0]);
+            requestAnimationFrame(() => {
+
+            activeLineEl.style.transition = '';
+            hoverBgEl.style.transition    = '';
+            });
+        });
+
+        tabs.forEach((tab, idx) => {
+            tab.addEventListener('click', () => {
+            tabs.forEach(t => {
+                t.classList.remove('active');
+
+                if (lightMode) t.style.color = '#999';
+            });
+            tab.classList.add('active');
+            if (lightMode) tab.style.color = '#111';
+            activeIdx = idx;
+            moveActiveLine(tab);
+            showPage(idx);
+            });
+        });
+
+        tabs.forEach(tab => {
+            tab.addEventListener('mouseenter', () => {
+            moveHoverBg(tab);
+            hoverBgEl.style.opacity = '1';
+            });
+        });
+
+
+        tabsEl.addEventListener('mouseleave', () => {
+            hoverBgEl.style.opacity = '0';
+        });
+        }
+
+        initMotionTabs({
+        tabsEl:      document.getElementById('tabs1'),
+        hoverBgEl:   document.getElementById('hoverBg1'),
+        activeLineEl: document.getElementById('activeLine1'),
+        contentEl:   document.getElementById('content1'),
+    });
+
+    fetch("https://api.mcsrvstat.us/3/l3gh.com")
+    .then(res => res.json())
+    .then(data => {
+        const container = document.getElementById("serverinfo");
+        container.innerHTML = "";
+
+        const status = document.createElement("div");
+        status.className = "server-status";
+        status.innerHTML =
+        'Status: <span class="' + (data.online ? "online" : "offline") + '">' +
+        (data.online ? "Online" : "Offline") +
+        "</span>";
+        container.appendChild(status);
+
+
+        if (data.players) {
+        const players = document.createElement("div");
+        players.className = "server-count";
+        players.textContent = `Players: ${data.players.online} / ${data.players.max}`;
+        container.appendChild(players);
+        }
+
+        if (data.online && data.players?.list?.length) {
+        const playerList = document.createElement("div");
+        playerList.id = "player-list";
+
+        data.players.list.forEach(player => {
+            const card = document.createElement("div");
+            card.className = "player-card";
+
+            const img = document.createElement("img");
+            img.src = `https://mc-heads.net/face/${player.uuid}/32`;
+            img.alt = player.name;
+
+            const name = document.createElement("span");
+            name.textContent = player.name;
+
+            card.appendChild(img);
+            card.appendChild(name);
+            playerList.appendChild(card);
+        });
+        }
+
+        const nerds = document.getElementById("nerds");
+
+        if (data.ip) {
+        const  NoAICode = document.createElement("div")
+        NoAICode.className = "nerds-ip"
+        NoAICode.textContent = "Full Ip: " + data.ip;
+        nerds.appendChild(NoAICode);
+        }
+
+        if (data.port) {
+        const mommy = document.createElement("div");
+        mommy.className = "server-version";
+        mommy.textContent = "Port: " + data.port;
+        nerds.appendChild(mommy);
+        }
+
+        if (data.version) {
+        const IHateJS = document.createElement("div");
+        IHateJS.className = "server-version";
+        IHateJS.textContent = "Version: " + data.version;
+        nerds.appendChild(IHateJS);
+        }
+        
+    })
+    .catch(err => {
+        document.getElementById("serverinfo").textContent = "Error: " + err;
+    });
+  </script>
+</body>
+</html>
